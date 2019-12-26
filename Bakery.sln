@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bakery", "Bakery\Bakery.csproj", "{1D997282-D643-4FCA-B1FE-025EA5B1F61E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTest_Bakery", "XUnitTest_Bakery\XUnitTest_Bakery.csproj", "{36A8D70E-89C1-427F-833D-26C59D6880CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D997282-D643-4FCA-B1FE-025EA5B1F61E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D997282-D643-4FCA-B1FE-025EA5B1F61E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D997282-D643-4FCA-B1FE-025EA5B1F61E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D997282-D643-4FCA-B1FE-025EA5B1F61E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36A8D70E-89C1-427F-833D-26C59D6880CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36A8D70E-89C1-427F-833D-26C59D6880CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36A8D70E-89C1-427F-833D-26C59D6880CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36A8D70E-89C1-427F-833D-26C59D6880CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D2F260E6-7D3D-4CF9-908B-AD649C082BBA}
+	EndGlobalSection
+EndGlobal

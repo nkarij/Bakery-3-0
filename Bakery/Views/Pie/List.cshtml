@@ -1,0 +1,14 @@
+﻿@* The model allow acces to the data Model, the <type> is using Bakery.Models (filename sensitive)  *@
+@model PieListViewModel
+
+    <h1>Nannas Bakery</h1>
+
+    <h2>This is the list of Pies that we offer today</h2>
+    
+
+    @* Model refers to the data above, loop data and output html *@
+    @foreach (var pie in Model.Pies)
+    {
+        // taghelper partial, refer to the partial name and the model (variable name from the foreach).
+        <partial name="_PieCard" model="pie"/>
+    }

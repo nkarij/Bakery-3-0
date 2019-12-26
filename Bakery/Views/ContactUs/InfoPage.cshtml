@@ -1,0 +1,17 @@
+﻿@* The model allow acces to the data Model, the <type> is using Bakery.Models (filename sensitive)  *@
+@model InfoPageViewModel
+
+
+    <h1>Contact Us</h1>
+    @* Model refers to the data above, loop data and output html *@
+
+    <h3>Contact Info:</h3>
+    @foreach (var address in Model.Info)
+    {
+    <div>
+        <h3>@address.ShopName</h3>
+        <p>Address: @address.StreetAddress</p>
+        <p>Email: @address.Email</p>
+        <p>Telephone: @address.Telephone.ToString()</p>
+    </div>
+    }
