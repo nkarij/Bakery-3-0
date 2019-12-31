@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Bakery.ViewModels
 {
-    public class PieListViewModel
+    public class ShoppingCartViewModel
     {
-        public IEnumerable<Pie> Pies { get; set; }
+        public ShoppingCart ShoppingCart { get; set; }
+        public decimal ShoppingCartTotal { get; set; }
 
     }
 }

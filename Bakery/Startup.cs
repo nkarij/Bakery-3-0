@@ -39,6 +39,15 @@ namespace Bakery
             // first param is interface, second param is implementation
             services.AddScoped<IPieRepository, PieRepository>();
             services.AddScoped<IContactUsRepository, MockContactUsRepository>();
+            // registereing the reviewRepository
+            services.AddScoped<IReviewRepository, ReviewRepository>();
+            // passing in the serviceprovider, this will invoke the getCart on a request
+            // and the getCart will check if a shoppingcart is active and related to the request
+            services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));
+            // the request, hereunder the session
+            services.AddHttpContextAccessor();
+            // add session support, remember to also add middleware support
+            services.AddSession();
             //Will give you a new instance every time you ask for one (???)
             //services.AddTransient<>();
             //singleton pattern:
@@ -64,6 +73,8 @@ namespace Bakery
             app.UseHttpsRedirection();
             // my app will serve static files, fx index.html, by default it will search the ..root folder, 
             app.UseStaticFiles();
+            // middleware support for sessions, NB! before UseRouting
+            app.UseSession();
 
             app.UseRouting();
             // this is our endpoint-middleware:

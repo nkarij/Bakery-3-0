@@ -7,7 +7,7 @@ namespace Bakery.Models
 {
     public class Pie
     {
-        public int PieID { get; set; }
+        public int PieId { get; set; }
         public string Name { get; set; }
 
         public string ShortDescription { get; set; }

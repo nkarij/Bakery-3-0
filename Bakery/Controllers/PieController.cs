@@ -30,7 +30,6 @@ namespace Bakery.Controllers
         {
             PieListViewModel pieListViewModel = new PieListViewModel();
             pieListViewModel.Pies = _pieRepository.AllPies;
-            pieListViewModel.RouteToInfoPage = "/contactus/infopage";
             return View(pieListViewModel);
         }
         

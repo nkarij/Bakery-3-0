@@ -1,4 +1,21 @@
 ﻿@model Pie
 
-    @*Her er navnet på partial-modellen, Model.*@
-    <partial name="_PieCard" model="Model" />
+<div>
+    <h3>
+        <a asp-controller="Pie" asp-action="Details" asp-route-id="@Model.PieId">@Model.Name</a>
+    </h3>
+    <p>@Model.ShortDescription</p>
+    @* the c is for currency? *@
+    <h3>@Model.Price.ToString("c")</h3>
+    <div>
+        <p>
+            <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-pieId="@Model.PieId">Add To Cart</a>
+        </p>
+    </div>
+</div>
+
+<div>
+    <p>
+        <a asp-controller="Review" asp-action="Checkout" asp-route-pieId="@Model.PieId">Add Your Own Review</a>
+    </p>
+</div>

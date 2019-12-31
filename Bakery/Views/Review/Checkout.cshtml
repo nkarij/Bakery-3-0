@@ -1,0 +1,20 @@
+﻿@model Review
+
+@*This corresponds to the controllers > checkout > actionResult > View*@
+@*this is a static view*@
+
+    <form asp-action="Checkout" method="post">
+        <h4> Your review </h4>
+
+        <div>
+            <label asp-for="ReviewText">Write your text here:</label>
+            <input asp-for="ReviewText" />
+        </div>
+        <div>
+            <label asp-for="Stars">Star the Cake (1-5)</label>
+            <input asp-for="Stars" />
+        </div>
+        <div>
+            <input type="submit" value="Complete Review" />
+        </div>
+    </form>

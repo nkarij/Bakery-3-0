@@ -4,14 +4,16 @@ using Bakery.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Bakery.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191230084210_reviewItemAdded")]
+    partial class reviewItemAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,7 +23,7 @@ namespace Bakery.Migrations
 
             modelBuilder.Entity("Bakery.Models.Pie", b =>
                 {
-                    b.Property<int>("PieId")
+                    b.Property<int>("PieID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -35,69 +37,72 @@ namespace Bakery.Migrations
                     b.Property<string>("ShortDescription")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("PieId");
+                    b.HasKey("PieID");
 
                     b.ToTable("Pies");
 
                     b.HasData(
                         new
                         {
-                            PieId = 1,
+                            PieID = 1,
                             Name = "Apple Pie",
                             Price = 12.96m,
                             ShortDescription = "Our famous apple pies"
                         },
                         new
                         {
-                            PieId = 2,
+                            PieID = 2,
                             Name = "Brownie",
                             Price = 5.25m,
                             ShortDescription = "Our famous Brownie"
                         },
                         new
                         {
-                            PieId = 3,
+                            PieID = 3,
                             Name = "Chery Pie",
                             Price = 3.16m,
                             ShortDescription = "Twin Peaks famous Cherry pies"
                         },
                         new
                         {
-                            PieId = 5,
+                            PieID = 5,
                             Name = "Othello Cake",
                             Price = 112.96m,
                             ShortDescription = "Our expensive Othello Cake"
                         });
                 });
 
-            modelBuilder.Entity("Bakery.Models.ShoppingCartItem", b =>
+            modelBuilder.Entity("Bakery.Models.ReviewItem", b =>
                 {
-                    b.Property<int>("ShoppingCartItemId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Amount")
+                    b.Property<int?>("PieID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PieId")
+                    b.Property<int>("ReviewStars")
                         .HasColumnType("int");
 
-                    b.Property<string>("ShoppingCartId")
+                    b.Property<string>("ReviewText")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ShoppingCartItemId");
+                    b.Property<string>("UserID")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasIndex("PieId");
+                    b.HasKey("Id");
 
-                    b.ToTable("ShoppingCartItems");
+                    b.HasIndex("PieID");
+
+                    b.ToTable("ReviewItems");
                 });
 
-            modelBuilder.Entity("Bakery.Models.ShoppingCartItem", b =>
+            modelBuilder.Entity("Bakery.Models.ReviewItem", b =>
                 {
                     b.HasOne("Bakery.Models.Pie", "Pie")
                         .WithMany()
-                        .HasForeignKey("PieId");
+                        .HasForeignKey("PieID");
                 });
 #pragma warning restore 612, 618
         }
