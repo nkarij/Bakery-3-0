@@ -14,35 +14,11 @@ namespace Bakery.Models
             _appDbContext = appDbContext;
         }
 
-        public void CreateReview(Review review)
+        // this method will add the form info to the database
+        public void addReviewToDatabase(Review review)
         {
-            var newReview = review;
-
+            _appDbContext.Reviews.Add(review);
+            _appDbContext.SaveChanges();
         }
-
-        // what are we receiving here? Not the review, we are posting from the form, but not to here.
-
-        //public void CreateReview(Review review)
-        //{
-
-        //    _appDbContext.Reviews.Add(review);
-
-        //    var details = review.ReviewDetails;
-
-        //    foreach (var item in details)
-        //    {
-        //        var reviewDetail = new ReviewDetail()
-        //        {
-        //            ReviewId = review.Id,
-        //            PieId = item.Pie.PieId,
-        //            //ReviewText = review.ReviewText,
-        //            //Stars = review.Stars,
-        //        };
-        //        _appDbContext.Details.Add(reviewDetail);
-        //    }
-
-        //    _appDbContext.SaveChanges();
-        //}
-
     }
 }

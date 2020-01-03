@@ -27,5 +27,10 @@ namespace Bakery.Models
         {
             return AllPies.FirstOrDefault(p => p.PieId == pieid);
         }
+
+        public IEnumerable<Review> GetReviewsByPieId(int pieid)
+        {
+            throw new Exception("MockPieRepo implementation");
+        }
     }
 }

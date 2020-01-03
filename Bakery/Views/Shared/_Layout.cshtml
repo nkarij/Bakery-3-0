@@ -19,9 +19,12 @@
                     <a asp-controller="ContactUs" asp-action="InfoPage">Contact Us</a>
                 </li>
                 @await Component.InvokeAsync("ShoppingCartSummary")
+                <partial name="_LoginPartial" />
             </ul>
         </nav>
         @RenderBody()
     </div>
+    @*// needed for the Login partial:*@
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

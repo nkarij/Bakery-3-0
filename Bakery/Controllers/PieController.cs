@@ -32,18 +32,39 @@ namespace Bakery.Controllers
             pieListViewModel.Pies = _pieRepository.AllPies;
             return View(pieListViewModel);
         }
-        
-        public IActionResult Details(int id)
+
+        // The view model should be able to send the reviews to the DetailsTest page..
+        public ViewResult DetailsTest(int id)
         {
             var pie = _pieRepository.GetPieByID(id);
+            var reviews = _pieRepository.GetReviewsByPieId(id);
 
-            if(pie == null)
+            if (pie == null)
             {
-                return NotFound();
-            } else
+                throw new Exception("error in Piecontroller > Details");
+            }
+            else
             {
-                return View(pie);
+                PieDetailsViewModel pieDetailsViewModel = new PieDetailsViewModel();
+                pieDetailsViewModel.Pie = pie;
+                if(reviews != null) { 
+                pieDetailsViewModel.PieReviews = reviews;
+                }
+                return View(pieDetailsViewModel);
             }
         }
+
+        //public IActionResult Details(int id)
+        //{
+        //    var pie = _pieRepository.GetPieByID(id);
+
+        //    if(pie == null)
+        //    {
+        //        return NotFound();
+        //    } else
+        //    {
+        //        return View(pie);
+        //    }
+        //}
     }
 }

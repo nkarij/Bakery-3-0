@@ -6,6 +6,7 @@ using Bakery.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,6 +35,10 @@ namespace Bakery
             // accessing the Configuration Properties in appsettings, passing it to UseSqlServer
             services.AddDbContext<AppDbContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            // configure identity, DefaultIdentity bring in basic functionality of Identity
+            // Identity needs EntitiFramework and will use AppDbContext to store data.
+            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<AppDbContext>();
             // AddScoped(): the instance will be created and scoped with the request, a singleton pr request.
             //register a service with its interface, remember ctr . to add using Bakery.Model
             // first param is interface, second param is implementation
@@ -55,6 +60,8 @@ namespace Bakery
 
             // this lets us use the MVC pattern
             services.AddControllersWithViews();
+            // support for razor pages for scaffolding (Identity)
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -77,6 +84,9 @@ namespace Bakery
             app.UseSession();
 
             app.UseRouting();
+            // middlewares for Identity
+            app.UseAuthentication();
+            app.UseAuthorization();
             // this is our endpoint-middleware:
             app.UseEndpoints(endpoints =>
             {
@@ -93,6 +103,9 @@ namespace Bakery
                 endpoints.MapControllerRoute(
                         name: "default",
                         pattern: "{controller=Home}/{action=Index}/{id?}");
+                // endpoint for Identitys razor pages:
+                endpoints.MapRazorPages();
+
 
              
             });

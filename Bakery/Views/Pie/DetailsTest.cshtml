@@ -1,0 +1,29 @@
+﻿@model PieDetailsViewModel
+
+<div>
+    <h3>
+        <a asp-controller="Pie" asp-action="Details" asp-route-id="@Model.Pie.PieId">@Model.Pie.Name</a>
+    </h3>
+    <p>@Model.Pie.ShortDescription</p>
+
+    <h3>@Model.Pie.Price.ToString("c")</h3>
+    <div>
+        <p>
+            <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-pieId="@Model.Pie.PieId">Add To Cart</a>
+        </p>
+    </div>
+</div>
+
+<div>
+    <p>
+        <a asp-controller="review" asp-action="checkout" asp-route-pieId="@Model.Pie.PieId">add your own review</a>
+    </p>
+</div>
+
+@* The review partial should go here *@
+
+@foreach (var review in Model.PieReviews)
+{
+    // taghelper partial, refer to the partial name and the model (variable name from the foreach).
+    <partial name="_ReviewCard" model="review" />
+}

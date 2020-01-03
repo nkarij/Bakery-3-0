@@ -7,6 +7,8 @@ namespace Bakery.Models
 {
     public class Review
     {
+        public Review(){}
+
         public int Id { get; set; } 
 
         //public List<ReviewDetail> ReviewDetails { get; set; }
@@ -15,7 +17,9 @@ namespace Bakery.Models
 
         public int Stars { get; set; }
         public int PieId { get; set; }
-        public Pie Pie { get; set; }
+
+        // maybe this is not necessary: ?
+        //public Pie Pie { get; set; }
     }
 }
 

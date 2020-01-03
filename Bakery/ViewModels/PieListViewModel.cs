@@ -9,6 +9,6 @@ namespace Bakery.ViewModels
     public class PieListViewModel
     {
         public IEnumerable<Pie> Pies { get; set; }
-
+        
     }
 }

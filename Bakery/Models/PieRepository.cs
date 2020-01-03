@@ -31,6 +31,10 @@ namespace Bakery.Models
             return _appDbContext.Pies.FirstOrDefault(p => p.PieId == pieid);
         }
 
-
+        public IEnumerable<Review> GetReviewsByPieId(int pieid)
+        {
+            return _appDbContext.Reviews.Where(r => r.PieId == pieid);
+        }
+ 
     }
 }

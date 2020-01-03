@@ -14,8 +14,8 @@ namespace Bakery.Models
 
         public decimal Price { get; set; }
 
-        //public int CategoryID { get; set; }
-        //public Category Category { get; set; }
+        // this must be rendered to the detail page... But how? There will be no data in Pie database.
+        public IEnumerable<Review> PieReviews { get; set; }
 
     }
 }

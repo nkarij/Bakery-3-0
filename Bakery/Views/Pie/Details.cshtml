@@ -7,15 +7,24 @@
     <p>@Model.ShortDescription</p>
     @* the c is for currency? *@
     <h3>@Model.Price.ToString("c")</h3>
-    <div>
+    @*<div>
         <p>
             <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-pieId="@Model.PieId">Add To Cart</a>
         </p>
-    </div>
+    </div>*@
 </div>
 
-<div>
+@*<div>
     <p>
         <a asp-controller="Review" asp-action="Checkout" asp-route-pieId="@Model.PieId">Add Your Own Review</a>
     </p>
-</div>
+</div>*@
+
+@* The review partial should go here *@
+
+
+@*@foreach (var pie in Model.PieRevivews)
+{
+    // taghelper partial, refer to the partial name and the model (variable name from the foreach).
+    <partial name="_ReviewCard" model="pie" />
+}*@

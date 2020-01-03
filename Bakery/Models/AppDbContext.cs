@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +9,8 @@ using System.Threading.Tasks;
 namespace Bakery.Models
 {
     // AppDbContext is the intermediate between our code and the database
-    //required: inherit from the DbContext base class
-    public class AppDbContext : DbContext
+    //required: inherit from the DbContext base class, alternativly IdentityDbContext
+    public class AppDbContext : IdentityDbContext<IdentityUser>
     {
         //required: an instance of DbContextOptions to be able to execute
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)

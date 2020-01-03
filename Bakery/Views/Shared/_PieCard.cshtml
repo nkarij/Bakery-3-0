@@ -2,10 +2,9 @@
 
 <div>
     <h3>
-        <a asp-controller="Pie" asp-action="Details" asp-route-id="@Model.PieId">@Model.Name</a>
+        <a asp-controller="Pie" asp-action="DetailsTest" asp-route-id="@Model.PieId">@Model.Name</a>
     </h3>
     <p>@Model.ShortDescription</p>
-    @* the c is for currency? *@
     <h3>@Model.Price.ToString("c")</h3>
     <div>
         <p>

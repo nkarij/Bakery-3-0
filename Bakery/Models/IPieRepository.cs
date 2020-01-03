@@ -10,7 +10,7 @@ namespace Bakery.Models
         // why only get? 
         IEnumerable<Pie> AllPies { get; }
 
-        //List<Pie> PiesOfTheWeek { get; }
+        public IEnumerable<Review> GetReviewsByPieId(int pieid);
 
         Pie GetPieByID(int pieid);
 

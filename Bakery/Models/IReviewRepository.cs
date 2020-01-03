@@ -7,6 +7,8 @@ namespace Bakery.Models
 {
     public interface IReviewRepository
     {
-        void CreateReview(Review review);
+        public void addReviewToDatabase(Review review);
+
     }
+    
 }
