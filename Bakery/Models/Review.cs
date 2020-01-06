@@ -10,9 +10,6 @@ namespace Bakery.Models
         public Review(){}
 
         public int Id { get; set; } 
-
-        //public List<ReviewDetail> ReviewDetails { get; set; }
-
         public string ReviewText { get; set; }
 
         public int Stars { get; set; }
